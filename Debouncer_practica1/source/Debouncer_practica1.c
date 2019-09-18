@@ -4,7 +4,6 @@
 int main(void) {
 
     while(1) {
-    	printf("hola mundo 123");
     }
 
 }
