@@ -1,34 +1,35 @@
 #include "MKL25Z4.h"
+#include "GPIO_Driver.h"
 
 /**
 assign the Botton ports
 **/
 
 void GPIOS (void){
-	SIM->SCGC5|=(1<<13);//E
-	SIM->SCGC5|=(1<<12);//D
-	SIM->SCGC5|=(1<<11);//C
-	SIM->SCGC5|=(1<<9);//A
+	SIM->SCGC5|=PUERTOSE;//E
+	SIM->SCGC5|=PUERTOSD;//D
+	SIM->SCGC5|=PUERTOSC;//C
+	SIM->SCGC5|=PUERTOSA;//A
 
-	PORTE->PCR[0]|= (1<<8);
-	PORTE->PCR[1]|= (1<<8);
-	PORTE->PCR[2]|= (1<<8);
-	PORTE->PCR[3]|= (1<<8);
-	PORTE->PCR[4]|= (1<<8);
-	PORTE->PCR[5]|= (1<<8);
+	PORTE->PCR[0]|= ON;
+	PORTE->PCR[1]|= ON;
+	PORTE->PCR[2]|= ON;
+	PORTE->PCR[3]|= ON;
+	PORTE->PCR[4]|= ON;
+	PORTE->PCR[5]|= ON;
 
-	PORTC->PCR[10]|= (1<<8);
-	PORTC->PCR[11]|= (1<<8);
-	PORTC->PCR[12]|= (1<<8);
-	PORTC->PCR[13]|= (1<<8);
+	PORTC->PCR[10]|= ON;
+	PORTC->PCR[11]|= ON;
+	PORTC->PCR[12]|= ON;
+	PORTC->PCR[13]|= ON;
 
-	PORTA->PCR[2]|= (1<<8);
-	PORTA->PCR[1]|= (1<<8);
-	PORTA->PCR[12]|= (1<<8);
-	PORTA->PCR[5]|= (1<<8);
-	PORTD->PCR[0]|= (1<<8);
-	PORTD->PCR[2]|= (1<<8);
-	PORTD->PCR[3]|= (1<<8);
+	PORTA->PCR[2]|= ON;
+	PORTA->PCR[1]|= ON;
+	PORTA->PCR[12]|=ON;
+	PORTA->PCR[5]|= ON;
+	PORTD->PCR[0]|= ON;
+	PORTD->PCR[2]|= ON;
+	PORTD->PCR[3]|= ON;
 
 	GPIOE->PDDR&=~(1<<0);
 	GPIOE->PDDR&=~(1<<1);
