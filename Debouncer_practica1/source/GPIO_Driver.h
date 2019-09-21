@@ -1,5 +1,7 @@
 #include "MKL25Z4.h"
 
+typedef unsigned char uint8;
+
 #ifndef GPIO_DRIVER_H_
 #define GPIO_DRIVER_H_
 

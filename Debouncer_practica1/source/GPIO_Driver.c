@@ -49,13 +49,14 @@ void GPIOS (void){
 	PORTA->PCR[5]|= ON;
 	PORTD->PCR[2]|= ON;
 
+/*
 	GPIOE->PDDR&=~enBotton0;
 	GPIOE->PDDR&=~enBotton1;
 	GPIOE->PDDR&=~enBotton2;
 	GPIOE->PDDR&=~enBotton3;
 	GPIOE->PDDR&=~enBotton4;
-	GPIOE->PDDR&=~enBotton5;
-
+	GPIOE->PDir==enBotton5;
+*/
 	GPIOE->PDDR|=enDisplay1;//(1<<10)
 	GPIOE->PDDR|=enDisplay2;//(1<<11)
 	GPIOE->PDDR|=enDisplay3;//(1<<12)
@@ -82,5 +83,18 @@ void GPIOS (void){
 	GPIOD->PSOR|= SegmentoF;
 	GPIOD->PSOR|= SegmentoG;
 }
+uint8 var=0;
+void Display1 (uint8 *VAR)
+{
+	if(var==0){
+		GPIOE->PDDR|=enDisplay1;
+	}else if(var==1){
+		GPIOC->PSOR|=enDisplay2;
+	}else if(var==2){
+		GPIOC->PSOR|=enDisplay3;
+	}else if(var==3){
+		GPIOC->PSOR|=enDisplay4;
+	}
 
+}
 
