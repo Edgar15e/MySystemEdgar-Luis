@@ -1,27 +1,26 @@
 #include "MKL25Z4.h"
 #include "GPIO_Driver.h"
 
-uint8 Segundos=0;
-uint8 Variable=0;
-uint8 Variable2=0;
+uint8 Segundos;
+uint8 Variable;
+uint8 Variable2;
 
 int main() {
-	 GPIOS ();
-
+	GPIOS ();
 	while(1) {
 		VEINTE_mSEGUNDOS ();
 		Segundos++;
 			if(Segundos==50){
 				LED_Toggle ();
 				Variable2++;
-				SegmentosOn(&Variable2);
+				SegmentosOn(Variable2);
 			if(Variable2==9){
 				Variable2=0;
 			}
 			Segundos=0;
     	 	 }else{
 				Variable++;
-				DisplayOn (&Variable);
+				DisplayOn (Variable);
 		     if(Variable==3){
 					Variable=0;
 		}
