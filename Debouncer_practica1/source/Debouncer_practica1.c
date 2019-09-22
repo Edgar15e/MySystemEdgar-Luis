@@ -11,21 +11,23 @@ int main() {
 	 GPIOS ();
 
 	while(1) {
-	    VEINTE_mSEGUNDOS ();
+		VEINTE_mSEGUNDOS ();
 		Segundos++;
     	 	 if(Segundos==50){
+				LED_Toggle ();
 				Variable2++;
 				SegmentosOn(&Variable2);
-				LED_Toggle ();
-				Segundos=0;
+			if(Variable2==9){
+				Variable2=0;
+			}
+			Segundos=0;
     	 	 }else{
 				Variable++;
 				DisplayOn (&Variable);
-				if(Variable==3){
+		     if(Variable==4){
 					Variable=0;
-				}
-   	 	 }
-
+		}
+    }
 }
 }
 

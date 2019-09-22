@@ -51,15 +51,6 @@ void GPIOS (void){
 	PORTD->PCR[SegmentoF]|= ON;
 	PORTD->PCR[SegmentoG]|= ON;
 
-
-/*
-	GPIOE->PDDR&=~enBotton0;
-	GPIOE->PDDR&=~enBotton1;
-	GPIOE->PDDR&=~enBotton2;
-	GPIOE->PDDR&=~enBotton3;
-	GPIOE->PDDR&=~enBotton4;
-	GPIOE->PDir==enBotton5;
-*/
 	GPIOE->PDDR|=enDisplay1;//(1<<10)
 	GPIOE->PDDR|=enDisplay2;//(1<<11)
 	GPIOE->PDDR|=enDisplay3;//(1<<12)
@@ -102,15 +93,16 @@ void LED_Toggle (void){
 uint8 VAR=0;
 void DisplayOn (uint8 *VAR)
 {
-	if(*VAR==0){
+	if(*VAR==1){
 		GPIOE->PDDR|=enDisplay1;
-	}else if(*VAR==1){
-		GPIOC->PSOR|=enDisplay2;
 	}else if(*VAR==2){
-		GPIOC->PSOR|=enDisplay3;
+		GPIOC->PSOR|=enDisplay2;
 	}else if(*VAR==3){
+		GPIOC->PSOR|=enDisplay3;
+	}else if(*VAR==4){
 		GPIOC->PSOR|=enDisplay4;
 	}
+
 }
 
 uint8 VAR2=0;
@@ -118,9 +110,9 @@ uint8 VAR2=0;
 void SegmentosOn(uint8 *VAR2){
 	if(*VAR2==0){
 
-		GPIOA->PCOR|= SegmentoA;
-		GPIOA->PCOR|= SegmentoB;
-		GPIOA->PCOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
 		GPIOA->PSOR|= SegmentoD;
 		GPIOD->PSOR|= SegmentoE;
 		GPIOD->PSOR|= SegmentoF;
@@ -129,27 +121,81 @@ void SegmentosOn(uint8 *VAR2){
 	}else if(*VAR2==1){
 
 		GPIOA->PCOR|= SegmentoA;
-		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PCOR|= SegmentoB;
 		GPIOA->PSOR|= SegmentoC;
 		GPIOA->PSOR|= SegmentoD;
-		GPIOD->PSOR|= SegmentoE;
-		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PCOR|= SegmentoE;
+		GPIOD->PCOR|= SegmentoF;
 		GPIOD->PCOR|= SegmentoG;
 
 	}else if(*VAR2==2){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PCOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PSOR|= SegmentoE;
+		GPIOD->PCOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+
+	}else if(*VAR2==3){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PCOR|= SegmentoE;
+		GPIOD->PCOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+	}else if(*VAR2==4){
 
 		GPIOA->PCOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
 		GPIOA->PSOR|= SegmentoC;
 		GPIOA->PCOR|= SegmentoD;
 		GPIOD->PCOR|= SegmentoE;
-		GPIOD->PCOR|= SegmentoF;
-		GPIOD->PCOR|= SegmentoG;
-
-	}else if(*VAR2==3){
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+	}else if(*VAR2==5){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PCOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PCOR|= SegmentoE;
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+	}else if(*VAR2==6){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PCOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PSOR|= SegmentoE;
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+	}else if(*VAR2==7){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PCOR|= SegmentoD;
+		GPIOD->PCOR|= SegmentoE;
+		GPIOD->PCOR|= SegmentoF;
+		GPIOD->PCOR|= SegmentoG;
+	}else if(*VAR2==8){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PSOR|= SegmentoE;
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+	}else if(*VAR2==9){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
 		GPIOA->PSOR|= SegmentoC;
 		GPIOA->PSOR|= SegmentoD;
 		GPIOD->PCOR|= SegmentoE;
@@ -160,4 +206,26 @@ void SegmentosOn(uint8 *VAR2){
 
 }
 
+void BottonRigth (void){
 
+}
+
+void BottonLeft (void){
+
+}
+
+void BottonUp (void){
+
+}
+
+void BottonDown (void){
+
+}
+
+void BottonRun (void){
+
+}
+
+void BottonConfig (void){
+
+}
