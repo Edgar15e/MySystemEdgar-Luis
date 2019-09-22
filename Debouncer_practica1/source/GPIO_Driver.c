@@ -29,6 +29,8 @@ void GPIOS (void){
 	SIM->SCGC5|=PUERTOSC;//C
 	SIM->SCGC5|=PUERTOSA;//A
 
+	PORTD->PCR[LED]|=ON;
+
 	PORTE->PCR[enBotton0]|= ON;
 	PORTE->PCR[enBotton1]|= ON;
 	PORTE->PCR[enBotton2]|= ON;
@@ -84,6 +86,18 @@ void GPIOS (void){
 	GPIOD->PSOR|= SegmentoF;
 	GPIOD->PSOR|= SegmentoG;
 }
+
+static uint16 x =1000;
+void VEINTE_mSEGUNDOS (void){
+		while(x!=20){
+			x--;
+		}
+}
+
+void LED_Toggle (void){
+	GPIOD->PTOR|=GPIO_PTOR_PTTO(7);
+}
+
 
 uint8 VAR=0;
 void DisplayOn (uint8 *VAR)
@@ -144,12 +158,6 @@ void SegmentosOn(uint8 *VAR2){
 	}
 
 
-}
-static uint16 x =1000;
-void VEINTE_mSEGUNDOS (void){
-		while(x!=20){
-			x--;
-		}
 }
 
 

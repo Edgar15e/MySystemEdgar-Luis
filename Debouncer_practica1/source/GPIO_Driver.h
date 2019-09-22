@@ -7,9 +7,12 @@ typedef unsigned short uint16;
 #define GPIO_DRIVER_H_
 
 void GPIOS (void);
+void LED_Toggle  (void);
 void DisplayOn (uint8 *VAR);
 void SegmentosOn(uint8 *VAR2);
 void VEINTE_mSEGUNDOS (void);
+
+#define LED (1<<7)
 
 #define PUERTOSE (1<<13)
 #define PUERTOSD (1<<12)

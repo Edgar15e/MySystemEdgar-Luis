@@ -16,6 +16,7 @@ int main() {
     	 	 if(Segundos==50){
 				Variable2++;
 				SegmentosOn(&Variable2);
+				LED_Toggle ();
 				Segundos=0;
     	 	 }else{
 				Variable++;
@@ -24,7 +25,6 @@ int main() {
 					Variable=0;
 				}
    	 	 }
-
 
 }
 }
