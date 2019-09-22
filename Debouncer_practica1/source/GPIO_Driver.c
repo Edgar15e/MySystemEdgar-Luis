@@ -43,13 +43,13 @@ void GPIOS (void){
 	PORTC->PCR[enDisplay3]|= ON;
 	PORTC->PCR[enDisplay4]|= ON;
 
-	PORTA->PCR[SegmentoA]|= ON;
-	PORTA->PCR[SegmentoB]|= ON;
-	PORTA->PCR[SegmentoC]|=ON;
-	PORTA->PCR[SegmentoD]|= ON;
-	PORTD->PCR[SegmentoE]|= ON;
-	PORTD->PCR[SegmentoF]|= ON;
-	PORTD->PCR[SegmentoG]|= ON;
+	PORTA->PCR[2]|= ON;
+	PORTA->PCR[1]|= ON;
+	PORTA->PCR[12]|=ON;
+	PORTA->PCR[5]|= ON;
+	PORTD->PCR[0]|= ON;
+	PORTD->PCR[2]|= ON;
+	PORTD->PCR[3]|= ON;
 
 	GPIOC->PDDR|=1<<enDisplay1;//(1<<10)
 	GPIOC->PDDR|=1<<enDisplay2;//(1<<11)
