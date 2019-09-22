@@ -51,10 +51,10 @@ void GPIOS (void){
 	PORTD->PCR[SegmentoF]|= ON;
 	PORTD->PCR[SegmentoG]|= ON;
 
-	GPIOC->PDDR|=enDisplay1;//(1<<10)
-	GPIOC->PDDR|=enDisplay2;//(1<<11)
-	GPIOC->PDDR|=enDisplay3;//(1<<12)
-	GPIOC->PDDR|=enDisplay4;//(1<<13)
+	GPIOC->PDDR|=1<<enDisplay1;//(1<<10)
+	GPIOC->PDDR|=1<<enDisplay2;//(1<<11)
+	GPIOC->PDDR|=1<<enDisplay3;//(1<<12)
+	GPIOC->PDDR|=1<<enDisplay4;//(1<<13)
 
 	GPIOA->PDDR|= SegmentoA;//enSegmentoA
 	GPIOA->PDDR|= SegmentoB;//enSegmentoB
@@ -64,10 +64,10 @@ void GPIOS (void){
 	GPIOD->PDDR|= SegmentoF;//enSegmentoF
 	GPIOD->PDDR|= SegmentoG;//enSegmentoG
 
-	GPIOC->PSOR|=enDisplay1;
-	GPIOC->PSOR|=enDisplay2;
-	GPIOC->PSOR|=enDisplay3;
-	GPIOC->PSOR|=enDisplay4;
+	GPIOC->PSOR|=1<<enDisplay1;
+	GPIOC->PSOR|=1<<enDisplay2;
+	GPIOC->PSOR|=1<<enDisplay3;
+	GPIOC->PSOR|=1<<enDisplay4;
 
 	GPIOA->PSOR|= SegmentoA;
 	GPIOA->PSOR|= SegmentoB;
@@ -93,25 +93,25 @@ uint8 VAR=0;
 void DisplayOn (uint8 *VAR)
 {
 	if(*VAR==0){
-		GPIOC->PSOR|=enDisplay1;
-		GPIOC->PCOR|=enDisplay2;
-		GPIOC->PCOR|=enDisplay3;
-		GPIOC->PCOR|=enDisplay4;
+		GPIOC->PSOR|=1<<enDisplay1;
+		GPIOC->PCOR|=1<<enDisplay2;
+		GPIOC->PCOR|=1<<enDisplay3;
+		GPIOC->PCOR|=1<<enDisplay4;
 	}else if(*VAR==1){
-		GPIOC->PCOR|=enDisplay1;
-		GPIOC->PSOR|=enDisplay2;
-		GPIOC->PCOR|=enDisplay3;
-		GPIOC->PCOR|=enDisplay4;
+		GPIOC->PCOR|=1<<enDisplay1;
+		GPIOC->PSOR|=1<<enDisplay2;
+		GPIOC->PCOR|=1<<enDisplay3;
+		GPIOC->PCOR|=1<<enDisplay4;
 	}else if(*VAR==2){
-		GPIOC->PCOR|=enDisplay1;
-		GPIOC->PCOR|=enDisplay2;
-		GPIOC->PSOR|=enDisplay3;
-		GPIOC->PCOR|=enDisplay4;
+		GPIOC->PCOR|=1<<enDisplay1;
+		GPIOC->PCOR|=1<<enDisplay2;
+		GPIOC->PSOR|=1<<enDisplay3;
+		GPIOC->PCOR|=1<<enDisplay4;
 	}else if(*VAR==3){
-		GPIOC->PCOR|=enDisplay1;
-		GPIOC->PCOR|=enDisplay2;
-		GPIOC->PCOR|=enDisplay3;
-		GPIOC->PSOR|=enDisplay4;
+		GPIOC->PCOR|=1<<enDisplay1;
+		GPIOC->PCOR|=1<<enDisplay2;
+		GPIOC->PCOR|=1<<enDisplay3;
+		GPIOC->PSOR|=1<<enDisplay4;
 	}
 
 }
@@ -215,7 +215,7 @@ void SegmentosOn(uint8 *VAR2){
 
 
 }
-
+/*
 void BottonRigth (void){
 //	GPIOE->PDIR[enBotton0]|=(1<<0);
 }
@@ -239,3 +239,4 @@ void BottonRun (void){
 void BottonConfig (void){
 
 }
+*/
