@@ -89,17 +89,28 @@ void LED_Toggle (void){
 	GPIOD->PTOR|=GPIO_PTOR_PTTO(7);
 }
 
-
 uint8 VAR=0;
 void DisplayOn (uint8 *VAR)
 {
 	if(*VAR==1){
-		GPIOE->PDDR|=enDisplay1;
+		GPIOE->PSOR|=enDisplay1;
+		GPIOC->PCOR|=enDisplay2;
+		GPIOC->PCOR|=enDisplay3;
+		GPIOC->PCOR|=enDisplay4;
 	}else if(*VAR==2){
+		GPIOE->PCOR|=enDisplay1;
 		GPIOC->PSOR|=enDisplay2;
+		GPIOE->PCOR|=enDisplay3;
+		GPIOE->PCOR|=enDisplay4;
 	}else if(*VAR==3){
+		GPIOE->PCOR|=enDisplay1;
+		GPIOE->PCOR|=enDisplay2;
 		GPIOC->PSOR|=enDisplay3;
+		GPIOE->PCOR|=enDisplay4;
 	}else if(*VAR==4){
+		GPIOE->PCOR|=enDisplay1;
+		GPIOE->PCOR|=enDisplay2;
+		GPIOE->PCOR|=enDisplay3;
 		GPIOC->PSOR|=enDisplay4;
 	}
 
