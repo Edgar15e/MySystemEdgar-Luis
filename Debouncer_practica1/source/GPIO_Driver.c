@@ -41,13 +41,14 @@ void GPIOS (void){
 	PORTC->PCR[enDisplay3]|= ON;
 	PORTC->PCR[enDisplay4]|= ON;
 
-	PORTD->PCR[0]|= ON;
-	PORTA->PCR[1]|= ON;
-	PORTA->PCR[2]|= ON;
-	PORTD->PCR[3]|= ON;
-	PORTA->PCR[12]|=ON;
-	PORTA->PCR[5]|= ON;
-	PORTD->PCR[2]|= ON;
+	PORTA->PCR[SegmentoA]|= ON;
+	PORTA->PCR[SegmentoB]|= ON;
+	PORTA->PCR[SegmentoC]|=ON;
+	PORTA->PCR[SegmentoD]|= ON;
+	PORTD->PCR[SegmentoE]|= ON;
+	PORTD->PCR[SegmentoF]|= ON;
+	PORTD->PCR[SegmentoG]|= ON;
+
 
 /*
 	GPIOE->PDDR&=~enBotton0;
@@ -83,18 +84,72 @@ void GPIOS (void){
 	GPIOD->PSOR|= SegmentoF;
 	GPIOD->PSOR|= SegmentoG;
 }
-uint8 var=0;
-void Display1 (uint8 *VAR)
+
+uint8 VAR=0;
+void DisplayOn (uint8 *VAR)
 {
-	if(var==0){
+	if(*VAR==0){
 		GPIOE->PDDR|=enDisplay1;
-	}else if(var==1){
+	}else if(*VAR==1){
 		GPIOC->PSOR|=enDisplay2;
-	}else if(var==2){
+	}else if(*VAR==2){
 		GPIOC->PSOR|=enDisplay3;
-	}else if(var==3){
+	}else if(*VAR==3){
 		GPIOC->PSOR|=enDisplay4;
 	}
+}
+
+uint8 VAR2=0;
+
+void SegmentosOn(uint8 *VAR2){
+	if(*VAR2==0){
+
+		GPIOA->PCOR|= SegmentoA;
+		GPIOA->PCOR|= SegmentoB;
+		GPIOA->PCOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PSOR|= SegmentoE;
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PCOR|= SegmentoG;
+
+	}else if(*VAR2==1){
+
+		GPIOA->PCOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PSOR|= SegmentoE;
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PCOR|= SegmentoG;
+
+	}else if(*VAR2==2){
+
+		GPIOA->PCOR|= SegmentoA;
+		GPIOA->PSOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PCOR|= SegmentoD;
+		GPIOD->PCOR|= SegmentoE;
+		GPIOD->PCOR|= SegmentoF;
+		GPIOD->PCOR|= SegmentoG;
+
+	}else if(*VAR2==3){
+
+		GPIOA->PSOR|= SegmentoA;
+		GPIOA->PCOR|= SegmentoB;
+		GPIOA->PSOR|= SegmentoC;
+		GPIOA->PSOR|= SegmentoD;
+		GPIOD->PCOR|= SegmentoE;
+		GPIOD->PSOR|= SegmentoF;
+		GPIOD->PSOR|= SegmentoG;
+	}
+
 
 }
+static uint16 x =1000;
+void VEINTE_mSEGUNDOS (void){
+		while(x!=20){
+			x--;
+		}
+}
+
 

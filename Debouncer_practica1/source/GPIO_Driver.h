@@ -1,9 +1,15 @@
 #include "MKL25Z4.h"
 
 typedef unsigned char uint8;
+typedef unsigned short uint16;
 
 #ifndef GPIO_DRIVER_H_
 #define GPIO_DRIVER_H_
+
+void GPIOS (void);
+void DisplayOn (uint8 *VAR);
+void SegmentosOn(uint8 *VAR2);
+void VEINTE_mSEGUNDOS (void);
 
 #define PUERTOSE (1<<13)
 #define PUERTOSD (1<<12)
