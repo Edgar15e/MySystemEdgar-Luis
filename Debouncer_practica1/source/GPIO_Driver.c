@@ -29,7 +29,7 @@ void GPIOS (void){
 	SIM->SCGC5|=PUERTOSC;//C
 	SIM->SCGC5|=PUERTOSA;//A
 
-	PORTD->PCR[LED]|=ON;
+	PORTD->PCR[7]|=ON;
 
 	PORTE->PCR[enBotton0]|= ON;
 	PORTE->PCR[enBotton1]|= ON;
@@ -63,12 +63,12 @@ void GPIOS (void){
 	GPIOD->PDDR|= SegmentoE;// enSegmentoE
 	GPIOD->PDDR|= SegmentoF;//enSegmentoF
 	GPIOD->PDDR|= SegmentoG;//enSegmentoG
-
+/*
 	GPIOC->PSOR|=1<<enDisplay1;
 	GPIOC->PSOR|=1<<enDisplay2;
 	GPIOC->PSOR|=1<<enDisplay3;
 	GPIOC->PSOR|=1<<enDisplay4;
-
+*/
 	GPIOA->PSOR|= SegmentoA;
 	GPIOA->PSOR|= SegmentoB;
 	GPIOA->PSOR|= SegmentoC;
@@ -81,6 +81,7 @@ void GPIOS (void){
 
 void VEINTE_mSEGUNDOS (void){
 	static uint16 x =1000;
+	x=1000;
 	while(x!=20){
 			x--;
 		}
