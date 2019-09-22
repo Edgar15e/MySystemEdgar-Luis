@@ -96,23 +96,17 @@ void DisplayOn (uint8 *VAR)
 {
 	if(*VAR==1){
 		GPIOC->PSOR|=1<<enDisplay1;
-		GPIOC->PCOR|=1<<enDisplay2;
-		GPIOC->PCOR|=1<<enDisplay3;
-		GPIOC->PCOR|=1<<enDisplay4;
+
 	}else if(*VAR==2){
-		GPIOC->PCOR|=1<<enDisplay1;
+
 		GPIOC->PSOR|=1<<enDisplay2;
-		GPIOC->PCOR|=1<<enDisplay3;
-		GPIOC->PCOR|=1<<enDisplay4;
+
 	}else if(*VAR==3){
-		GPIOC->PCOR|=1<<enDisplay1;
-		GPIOC->PCOR|=1<<enDisplay2;
+
 		GPIOC->PSOR|=1<<enDisplay3;
-		GPIOC->PCOR|=1<<enDisplay4;
+
 	}else if(*VAR==4){
-		GPIOC->PCOR|=1<<enDisplay1;
-		GPIOC->PCOR|=1<<enDisplay2;
-		GPIOC->PCOR|=1<<enDisplay3;
+
 		GPIOC->PSOR|=1<<enDisplay4;
 	}
 
