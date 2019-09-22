@@ -218,7 +218,7 @@ void SegmentosOn(uint8 *VAR2){
 }
 
 void BottonRigth (void){
-
+//	GPIOE->PDIR[enBotton0]|=(1<<0);
 }
 
 void BottonLeft (void){
