@@ -31,12 +31,12 @@ void GPIOS (void){
 
 	PORTD->PCR[LED]|=ON;
 
-	PORTE->PCR[1<<enBotton0]|= ON;
-	PORTE->PCR[1<<enBotton1]|= ON;
-	PORTE->PCR[1<<enBotton2]|= ON;
-	PORTE->PCR[1<<enBotton3]|= ON;
-	PORTE->PCR[1<<enBotton4]|= ON;
-	PORTE->PCR[1<<enBotton5]|= ON;
+	PORTE->PCR[enBotton0]|= ON;
+	PORTE->PCR[enBotton1]|= ON;
+	PORTE->PCR[enBotton2]|= ON;
+	PORTE->PCR[enBotton3]|= ON;
+	PORTE->PCR[enBotton4]|= ON;
+	PORTE->PCR[enBotton5]|= ON;
 
 	PORTC->PCR[enDisplay1]|= ON;
 	PORTC->PCR[enDisplay2]|= ON;
@@ -92,22 +92,22 @@ void LED_Toggle (void){
 uint8 VAR=0;
 void DisplayOn (uint8 *VAR)
 {
-	if(*VAR==1){
+	if(*VAR==0){
 		GPIOC->PSOR|=enDisplay1;
 		GPIOC->PCOR|=enDisplay2;
 		GPIOC->PCOR|=enDisplay3;
 		GPIOC->PCOR|=enDisplay4;
-	}else if(*VAR==2){
+	}else if(*VAR==1){
 		GPIOC->PCOR|=enDisplay1;
 		GPIOC->PSOR|=enDisplay2;
 		GPIOC->PCOR|=enDisplay3;
 		GPIOC->PCOR|=enDisplay4;
-	}else if(*VAR==3){
+	}else if(*VAR==2){
 		GPIOC->PCOR|=enDisplay1;
 		GPIOC->PCOR|=enDisplay2;
 		GPIOC->PSOR|=enDisplay3;
 		GPIOC->PCOR|=enDisplay4;
-	}else if(*VAR==4){
+	}else if(*VAR==3){
 		GPIOC->PCOR|=enDisplay1;
 		GPIOC->PCOR|=enDisplay2;
 		GPIOC->PCOR|=enDisplay3;

@@ -24,8 +24,8 @@ int main() {
     	 	 }else{
 				Variable++;
 				DisplayOn (&Variable);
-		     if(Variable==4){
-					Variable=1;
+		     if(Variable==3){
+					Variable=0;
 		}
     }
 }
