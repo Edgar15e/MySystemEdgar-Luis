@@ -51,10 +51,10 @@ void GPIOS (void){
 	PORTD->PCR[SegmentoF]|= ON;
 	PORTD->PCR[SegmentoG]|= ON;
 
-	GPIOE->PDDR|=enDisplay1;//(1<<10)
-	GPIOE->PDDR|=enDisplay2;//(1<<11)
-	GPIOE->PDDR|=enDisplay3;//(1<<12)
-	GPIOE->PDDR|=enDisplay4;//(1<<13)
+	GPIOC->PDDR|=enDisplay1;//(1<<10)
+	GPIOC->PDDR|=enDisplay2;//(1<<11)
+	GPIOC->PDDR|=enDisplay3;//(1<<12)
+	GPIOC->PDDR|=enDisplay4;//(1<<13)
 
 	GPIOA->PDDR|= SegmentoA;//enSegmentoA
 	GPIOA->PDDR|= SegmentoB;//enSegmentoB
