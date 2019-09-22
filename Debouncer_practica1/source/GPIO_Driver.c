@@ -31,12 +31,12 @@ void GPIOS (void){
 
 	PORTD->PCR[LED]|=ON;
 
-	PORTE->PCR[enBotton0]|= ON;
-	PORTE->PCR[enBotton1]|= ON;
-	PORTE->PCR[enBotton2]|= ON;
-	PORTE->PCR[enBotton3]|= ON;
-	PORTE->PCR[enBotton4]|= ON;
-	PORTE->PCR[enBotton5]|= ON;
+	PORTE->PCR[1<<enBotton0]|= ON;
+	PORTE->PCR[1<<enBotton1]|= ON;
+	PORTE->PCR[1<<enBotton2]|= ON;
+	PORTE->PCR[1<<enBotton3]|= ON;
+	PORTE->PCR[1<<enBotton4]|= ON;
+	PORTE->PCR[1<<enBotton5]|= ON;
 
 	PORTC->PCR[enDisplay1]|= ON;
 	PORTC->PCR[enDisplay2]|= ON;
@@ -117,7 +117,6 @@ void DisplayOn (uint8 *VAR)
 }
 
 uint8 VAR2=0;
-
 void SegmentosOn(uint8 *VAR2){
 	if(*VAR2==0){
 
