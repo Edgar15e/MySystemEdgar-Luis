@@ -78,9 +78,10 @@ void GPIOS (void){
 	GPIOD->PSOR|= SegmentoG;
 }
 
-static uint16 x =1000;
+
 void VEINTE_mSEGUNDOS (void){
-		while(x!=20){
+	static uint16 x =1000;
+	while(x!=20){
 			x--;
 		}
 }
@@ -89,25 +90,25 @@ void LED_Toggle (void){
 	GPIOD->PTOR|=GPIO_PTOR_PTTO(7);
 }
 
-uint8 VAR;
-void DisplayOn (uint8 VAR)
+uint8 VAR=0;
+void DisplayOn (uint8 *VAR)
 {
-	if(VAR==0){
+	if(*VAR==1){
 		GPIOC->PSOR|=1<<enDisplay1;
 		GPIOC->PCOR|=1<<enDisplay2;
 		GPIOC->PCOR|=1<<enDisplay3;
 		GPIOC->PCOR|=1<<enDisplay4;
-	}else if(VAR==1){
+	}else if(*VAR==2){
 		GPIOC->PCOR|=1<<enDisplay1;
 		GPIOC->PSOR|=1<<enDisplay2;
 		GPIOC->PCOR|=1<<enDisplay3;
 		GPIOC->PCOR|=1<<enDisplay4;
-	}else if(VAR==2){
+	}else if(*VAR==3){
 		GPIOC->PCOR|=1<<enDisplay1;
 		GPIOC->PCOR|=1<<enDisplay2;
 		GPIOC->PSOR|=1<<enDisplay3;
 		GPIOC->PCOR|=1<<enDisplay4;
-	}else if(VAR==3){
+	}else if(*VAR==4){
 		GPIOC->PCOR|=1<<enDisplay1;
 		GPIOC->PCOR|=1<<enDisplay2;
 		GPIOC->PCOR|=1<<enDisplay3;
@@ -116,9 +117,9 @@ void DisplayOn (uint8 VAR)
 
 }
 
-uint8 VAR2;
-void SegmentosOn(uint8 VAR2){
-	if(VAR2==0){
+uint8 VAR2=0;
+void SegmentosOn(uint8 *VAR2){
+	if(*VAR2==0){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
@@ -128,7 +129,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PSOR|= SegmentoF;
 		GPIOD->PCOR|= SegmentoG;
 
-	}else if(VAR2==1){
+	}else if(*VAR2==1){
 
 		GPIOA->PCOR|= SegmentoA;
 		GPIOA->PCOR|= SegmentoB;
@@ -138,7 +139,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PCOR|= SegmentoF;
 		GPIOD->PCOR|= SegmentoG;
 
-	}else if(VAR2==2){
+	}else if(*VAR2==2){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
@@ -148,7 +149,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PCOR|= SegmentoF;
 		GPIOD->PSOR|= SegmentoG;
 
-	}else if(VAR2==3){
+	}else if(*VAR2==3){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
@@ -157,7 +158,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PCOR|= SegmentoE;
 		GPIOD->PCOR|= SegmentoF;
 		GPIOD->PSOR|= SegmentoG;
-	}else if(VAR2==4){
+	}else if(*VAR2==4){
 
 		GPIOA->PCOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
@@ -166,7 +167,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PCOR|= SegmentoE;
 		GPIOD->PSOR|= SegmentoF;
 		GPIOD->PSOR|= SegmentoG;
-	}else if(VAR2==5){
+	}else if(*VAR2==5){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PCOR|= SegmentoB;
@@ -175,7 +176,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PCOR|= SegmentoE;
 		GPIOD->PSOR|= SegmentoF;
 		GPIOD->PSOR|= SegmentoG;
-	}else if(VAR2==6){
+	}else if(*VAR2==6){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PCOR|= SegmentoB;
@@ -184,7 +185,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PSOR|= SegmentoE;
 		GPIOD->PSOR|= SegmentoF;
 		GPIOD->PSOR|= SegmentoG;
-	}else if(VAR2==7){
+	}else if(*VAR2==7){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
@@ -193,7 +194,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PCOR|= SegmentoE;
 		GPIOD->PCOR|= SegmentoF;
 		GPIOD->PCOR|= SegmentoG;
-	}else if(VAR2==8){
+	}else if(*VAR2==8){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;
@@ -202,7 +203,7 @@ void SegmentosOn(uint8 VAR2){
 		GPIOD->PSOR|= SegmentoE;
 		GPIOD->PSOR|= SegmentoF;
 		GPIOD->PSOR|= SegmentoG;
-	}else if(VAR2==9){
+	}else if(*VAR2==9){
 
 		GPIOA->PSOR|= SegmentoA;
 		GPIOA->PSOR|= SegmentoB;

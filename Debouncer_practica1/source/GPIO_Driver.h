@@ -8,8 +8,8 @@ typedef unsigned short uint16;
 
 void GPIOS (void);
 void LED_Toggle  (void);
-void DisplayOn (uint8 VAR);
-void SegmentosOn(uint8 VAR2);
+void DisplayOn (uint8 *VAR);
+void SegmentosOn(uint8 *VAR2);
 void VEINTE_mSEGUNDOS (void);
 
 #define LED (1<<7)
