@@ -8,7 +8,6 @@
 uint16 Segundos=0;
 MyStateMachine States=Parking;
 int main() {
-	segundos=1;
 GPIOS ();
 PWM_Init ();
 ClearGPIOS();
